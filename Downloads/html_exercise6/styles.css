@@ -1,0 +1,15 @@
+body {
+    font-family: 'Pacifico', cursive;
+    background-color: #f4c2c2; 
+    color: #ff69b4; 
+}
+
+#main-title {
+    text-align: center;
+    color: #ff69b4; 
+}
+
+.content {
+    margin-bottom: 12px;
+    color: #ff69b4; 
+}
