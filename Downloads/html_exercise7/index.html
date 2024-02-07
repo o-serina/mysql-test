@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<input type="text" id="txt-price" placeholder="Enter the price of the item">
+<input type="text" id="txt-quantity" placeholder="Enter the quanity of the item">
+<button id="btn-submit">Calculate</button>
+<div id="output"></div>
+<script>
+// Get the input element for price by its ID.
+var priceInput = document.getElementById('txt-price');
+// Get the input element for quantity by its ID.
+var quantityInput = document.getElementById('txt-quantity');
+// Get the button element by its ID.
+var submitBtn = document.getElementById('btn-submit');
+// Get the div element where the output will be displayed.
+var output = document.getElementById('output');
+
+// Add an event listener to the submit button that triggers a function when the button is clicked.
+submitBtn.addEventListener('click', function () {
+    // Retrieve the value from the price input field and store it in a variable.
+    var price = priceInput.value;
+    // Retrieve the value from the quantity input field and store it in a variable.
+    var quantity = quantityInput.value;
+    
+    // Convert the price and quantity values from strings to numbers.
+    price = +price;
+    quantity = +quantity;
+    
+    // Check if either the price or quantity is Not-a-Number after conversion, indicating invalid input.
+    if (Number.isNaN(price) || Number.isNaN(quantity)) {
+      // If either value is invalid, display an error message in the output div.
+      output.innerHTML = 'Invalid input';
+      // Exit the function early to prevent further execution.
+      return;
+    }
+    
+    // Calculate the total price by multiplying the price and quantity.
+    var totalPrice = price * quantity;
+    // Round the total price to two decimal places for currency formatting.
+    totalPrice = Math.round(totalPrice * 100) / 100;
+    
+    // Display the calculated total price in the output div, including the quantity and price per item.
+    output.innerHTML = quantity + ' items at $' + price + ' each is $' + totalPrice;
+});
+</script>
+</html>
